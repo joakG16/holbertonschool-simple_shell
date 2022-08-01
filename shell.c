@@ -18,6 +18,7 @@ int main(void)
 		{
 			break;
 		}
+		printf("'%s'", buffer);
 	}
 	free(buffer);
 	return(0);
