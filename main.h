@@ -10,5 +10,8 @@
 #include <sys/stat.h>
 
 extern char **environ;
+int main(void);
+int vexec(char **args);
+char **token(char *buffer);
 
 #endif

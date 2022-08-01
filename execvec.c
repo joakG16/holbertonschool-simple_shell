@@ -28,6 +28,6 @@ int vexec(char **args)
 	else
 		wait(&status);
 	
-	free(argv);
+	free(args);
 	return (0);
 }

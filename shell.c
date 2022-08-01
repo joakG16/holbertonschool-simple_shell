@@ -9,6 +9,7 @@ int main(void)
 {
 	char *buffer = NULL;
 	size_t buff_size = 0;
+	char **args;
 
 	while (1)
 	{
@@ -18,9 +19,10 @@ int main(void)
 		{
 			break;
 		}
-		printf("'%s'", buffer);
+		args = token(buffer);
+		vexec(args);
 	}
 	free(buffer);
 	return(0);
-
+	
 }
