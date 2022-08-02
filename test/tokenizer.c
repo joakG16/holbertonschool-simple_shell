@@ -7,24 +7,22 @@
  */
 char **token(char *buffer)
 {
-	char **argv = NULL;
-	char *buffcpy = strtok(buffer, "\n");
+	char **argv;
+	char *toked;
+	int i;
 
-	argv = malloc(2 * sizeof(char *));
-	if (argv == NULL)
+	argv = calloc(1024, sizeof(char *));
+	if (!argv)
+		return (NULL);
+
+	toked = strtok(buffer, " \n\t");
+
+	for(i = 0; i < 1024 && toked != NULL; i++)
 	{
-		perror("Error");
-		exit(EXIT_FAILURE);
+		argv[i] = toked;
+		toked = strtok(NULL, " \n\t");
 	}
-	argv[0] = malloc((strlen(buffer)) * sizeof(char));
-	if (argv[0] == NULL)
-	{
-		free(argv);
-		perror("Error");
-		exit(EXIT_FAILURE);
-	}
-	strcpy(argv[0], buffcpy);
-	argv[1] = NULL;
+	argv[i] = NULL;
 
 	return (argv);
 }

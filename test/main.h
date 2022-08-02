@@ -16,5 +16,9 @@ int vexec(char **args);
 char **token(char *buffer);
 void catchsig(int sig);
 int shprompt();
+int _strlen(char *s);
+char *_strdup(char *str);
+int _strcmp(char *s1, char *s2);
+char *_strcat(char *dest, char *src);
 
 #endif
