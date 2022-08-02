@@ -1,16 +1,16 @@
 #include "main.h"
 
 /**
- *
- *
- *
+ * token - function to tokenize the buffer
+ * @buffer: the buffer
+ * Return: argv value
  */
 char **token(char *buffer)
 {
 	char **argv = NULL;
 	char *buffcpy = strtok(buffer, "\n");
 
-	argv = malloc(2 * sizeof(char*));
+	argv = malloc(2 * sizeof(char *));
 	if (argv == NULL)
 	{
 		perror("Error");

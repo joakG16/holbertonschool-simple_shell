@@ -1,7 +1,7 @@
 #include "main.h"
 
 /**
- *
+ * 
  *
  *
  */
@@ -15,11 +15,11 @@ int vexec(char **args)
 	if (pid == -1)
 	{
 		perror("Error: ");
-		return(1);
+		return (1);
 	}
 	if (pid == 0)
 	{
-		if (execve(args[0], args, NULL) == - 1)
+		if (execve(args[0], args, NULL) == -1)
 		{
 			perror("Error: ");
 			return (1);
@@ -27,7 +27,7 @@ int vexec(char **args)
 	}
 	else
 		wait(&status);
-	
+
 	free(args);
 	return (0);
 }

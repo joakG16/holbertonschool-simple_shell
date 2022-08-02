@@ -1,9 +1,8 @@
 #include "main.h"
 
 /**
- *
- *
- *
+ * main - the main function
+ * Return: void
  */
 int main(void)
 {
@@ -28,9 +27,13 @@ int main(void)
 		vexec(args);
 	}
 	free(buffer);
-	return(0);
-	
+	return (0);
 }
+/**
+ * catchsig - function to catch the signal
+ * @sig: the signal
+ * Return: void
+ */
 void catchsig(int sig)
 {
 	if (sig == SIGINT)
@@ -39,11 +42,15 @@ void catchsig(int sig)
 		shprompt();
 	}
 }
-int shprompt()
+/**
+ * shprompt - function to verify if it's from terminal or file
+ * Return: void
+ **/
+int shprompt(void)
 {
 	if (isatty(STDIN_FILENO) == 1)
 	{
 		write(STDOUT_FILENO, "#cisfun$ ", 10);
 	}
-	return(0);
+	return (0);
 }
