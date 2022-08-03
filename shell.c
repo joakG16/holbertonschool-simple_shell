@@ -36,7 +36,11 @@ int main(int ac, char **av, char **env)
 			free(buffer);
 			return (0);
 		}
-
+		if (_strcmp(*args, "env") == 0)
+		{
+			_getenv();
+			continue;
+		}
 		vexec(args, env);
 	}
 	free(buffer);
@@ -66,4 +70,20 @@ int shprompt(void)
 		write(STDOUT_FILENO, "#cisfun$ ", 10);
 	}
 	return (0);
+}
+
+/**
+ * _getenv - func to get the environment
+ * Return: 0
+ */
+int _getenv()
+{
+        int string, strenv = 0;
+        for (string = 0; environ[string] != NULL; string++)
+        {
+                write(1, environ[strenv], _strlen(environ[strenv]));
+		write(1, "\n", 2);
+                strenv++;
+        }
+        return (0);
 }
