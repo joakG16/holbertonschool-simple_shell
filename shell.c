@@ -19,12 +19,8 @@ int main(int ac, char **av, char **env)
 		shprompt();
 
 		if (getline(&buffer, &buff_size, stdin) == EOF)
-		{
-			if(isatty(STDIN_FILENO))
-				write(STDOUT_FILENO, "\n", 2);
+			break;
 
-			exit(EXIT_FAILURE);
-		}
 		if (buffer[0] == '\n')
 			continue;
 
