@@ -31,6 +31,8 @@ int main(int ac, char **av, char **env)
 
 		if (_strcmp(*args, "exit") == 0)
 		{
+			if(args)
+				free(args);
 			free(buffer);
 			return (0);
 		}
