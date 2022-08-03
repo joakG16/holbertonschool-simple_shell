@@ -25,7 +25,11 @@ int main(int ac, char **av, char **env)
 			continue;
 
 		args = token(buffer);
-		vexec(args, env);
+
+		if (args != NULL)
+		{
+			vexec(args, env);
+		}
 	}
 	free(buffer);
 	return (0);
