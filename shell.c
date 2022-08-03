@@ -24,6 +24,12 @@ int main(int ac, char **av, char **env)
 		if (buffer[0] == '\n')
 			continue;
 
+		if (_strcmp(buffer, "exit"))
+		{
+			free(buffer);
+			return (0);
+		}
+
 		args = token(buffer);
 
 		if (args != NULL)
