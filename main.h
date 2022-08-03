@@ -11,8 +11,8 @@
 #include <signal.h>
 
 extern char **environ;
-int main(void);
-int vexec(char **args);
+int main(int ac, char **av, char **env);
+int vexec(char **args, char **enve);
 char **token(char *buffer);
 void catchsig(int sig);
 int shprompt();

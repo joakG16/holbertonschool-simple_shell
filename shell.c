@@ -4,11 +4,13 @@
  * main - the main function
  * Return: void
  */
-int main(void)
+int main(int ac, char **av, char **env)
 {
 	char *buffer = NULL;
 	size_t buff_size = 0;
 	char **args;
+	(void)(ac);
+	(void)(av);
 
 	while (1)
 	{
@@ -27,7 +29,7 @@ int main(void)
 			continue;
 
 		args = token(buffer);
-		vexec(args);
+		vexec(args, env);
 	}
 	free(buffer);
 	return (0);

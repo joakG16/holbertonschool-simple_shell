@@ -5,7 +5,7 @@
  *
  *
  */
-int vexec(char **args)
+int vexec(char **args, char **enve)
 {
 	pid_t pid;
 	int status = 0;
@@ -20,7 +20,7 @@ int vexec(char **args)
 	if (pid == 0)
 	{
 
-		if (execve(args[0], args, NULL) == -1)
+		if (execve(args[0], args, enve) == -1)
 		{
 			perror("Error");
 		}
