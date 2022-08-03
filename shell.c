@@ -24,18 +24,18 @@ int main(int ac, char **av, char **env)
 		if (buffer[0] == '\n')
 			continue;
 
-		if (_strcmp(buffer, "exit"))
+		args = token(buffer);
+
+		if (args == NULL)
+			break;
+
+		if (_strcmp(*args, "exit") == 0)
 		{
 			free(buffer);
 			return (0);
 		}
 
-		args = token(buffer);
-
-		if (args != NULL)
-		{
-			vexec(args, env);
-		}
+		vexec(args, env);
 	}
 	free(buffer);
 	return (0);
