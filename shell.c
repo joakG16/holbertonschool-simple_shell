@@ -39,6 +39,8 @@ int main(int ac, char **av, char **env)
 		if (_strcmp(*args, "env") == 0)
 		{
 			_getenv();
+			if(args)
+				free(args);
 			continue;
 		}
 		vexec(args, env);
