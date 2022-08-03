@@ -17,6 +17,9 @@ char **token(char *buffer)
 
 	toked = strtok(buffer, " \n\t");
 
+	if(toked == NULL)
+		return (NULL);
+
 	for(i = 0; i < 1024 && toked != NULL; i++)
 	{
 		argv[i] = toked;
