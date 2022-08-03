@@ -16,9 +16,12 @@ int main(void)
 
 		shprompt();
 
-		if (getline(&buffer, &buff_size, stdin) == -1)
+		if (getline(&buffer, &buff_size, stdin) == EOF)
 		{
-			break;
+			if(isatty(STDIN_FILENO))
+				write(STDOUT_FILENO, "\n", 2);
+
+			exit(EXIT_FAILURE);
 		}
 		if (buffer[0] == '\n')
 			continue;
