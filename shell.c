@@ -35,7 +35,7 @@ int main(int ac, char **av, char **env)
 			if(args)
 				free(args);
 			free(buffer);
-			return (0);
+			return (retval);
 		}
 		if (_strcmp(*args, "env") == 0)
 		{
