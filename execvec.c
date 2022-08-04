@@ -26,11 +26,12 @@ int vexec(char **args, char **enve)
 		}
 		free(args);
 	}
-	else
+	wait(&status);
+	if (WIFEXITED(status))
 	{
-		wait(&status);
 		free(args);
+		return(WEXITSTATUS(status));
 	}
-
+	free(args);
 	return (0);
 }

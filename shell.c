@@ -9,6 +9,7 @@ int main(int ac, char **av, char **env)
 	char *buffer = NULL;
 	size_t buff_size = 0;
 	char **args;
+	int retval = 0;
 	(void)(ac);
 	(void)(av);
 
@@ -43,10 +44,10 @@ int main(int ac, char **av, char **env)
 				free(args);
 			continue;
 		}
-		vexec(args, env);
+		retval = vexec(args, env);
 	}
 	free(buffer);
-	return (0);
+	return (retval);
 }
 /**
  * catchsig - function to catch the signal
