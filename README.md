@@ -1,6 +1,6 @@
 <h1> SIMPLE SHELL PROJECT </h1>
 
-Simple shell project developed by Joaquín Domínguez and Felipe Sandim for Holberton School Uruguay.
+This was our end of first trimester proyect, in which we had to develop a simple command line interpreter with the latest konwledge acquired. Made for Holberton School Uruguay.
 
 ## DESCRIPTION
 
