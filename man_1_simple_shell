@@ -1,0 +1,94 @@
+.TH HSH(1)               POSIX Programmer's Manual              HSH(1)
+
+.SH NAME
+.B ./hsh
+- A simple UNIX command line interpreter.
+
+.SH SYNOPSIS
+.B ./hsh [command_string] [arguments]
+
+.SH DESCRIPTION
+.LP
+.B hsh
+is an sh-compatible command language interpreter that reads and executes commands from standard input. It is conformed to the POSIX specifications for the shell program. This shell is based on the original UNIX shell written by Ken Thompson. Developed in Ubuntu 20.04 LTS, using gcc.
+.LP
+
+.SH OVERVIEW
+The shell reads commands from the terminal and executes them. It needs to have its full path to work correctly
+
+.SS Invocation
+.B hsh
+is invoked by the command:
+.br
+.\&$ ./hsh
+A prompt will appear for the user to enter and execute commands by typing comma
+nd names and pressing the return key. A user can also pipe commands into the pr
+ogram via the pipe character '|'. For example:
+.br
+\&$ echo "hello world" | ./hsh
+
+.SH INSTALLATION
+.I To install:
+.br
+
+.B git clone https://github.com/joakG16/holbertonschool-simple_shell.git
+.br
+
+.I Compile files using:
+.br
+
+.B gcc -Wall -Werror -Wextra -pedantic -std=gnu89 *.c -o hsh
+.br
+.br
+
+.SH BUILT-INS
+.PP
+exit - Exits the shell.
+.PP
+env - Prints the user's environment.
+
+.SH EXAMPLE
+$ ./hsh
+.br
+#cisfun$ /bin/ls -l
+.br
+total 12924
+.br
+-rw-r--r-- 1 root root     231 Aug  2 13:55 AUTHORS
+.br
+-rw-r--r-- 1 root root     643 Aug  5 02:24 execvec.c
+.br
+-rwxr-xr-x 1 root root   17736 Aug  4 05:59 hsh
+.br
+-rw-r--r-- 1 root root     517 Aug  5 02:13 main.h
+.br
+-rw-r--r-- 1 root root    1245 Aug  5 03:03 man_1_simple_shell
+.br
+-rw-r--r-- 1 root root    1653 Aug  4 04:47 README.md
+.br
+-rw-r--r-- 1 root root    1575 Aug  5 02:27 shell.c
+.br
+-rw-r--r-- 1 root root    1356 Aug  5 02:30 strfunc.c
+.br
+drwxr-xr-x 2 root root     113 Aug  3 07:23 test
+.br
+-rw-r--r-- 1 root root     535 Aug  5 02:30 tokenizer.c
+.br
+-rw------- 1 root root 6590464 Aug  3 08:49 vgcore.17564
+.br
+-rw------- 1 root root 6590464 Aug  3 11:39 vgcore.17697
+.br
+#cisfun$
+
+.SH SEE ALSO
+sh(1)
+
+.SH HISTORY
+.B hsh
+is based on the Thompson Shell's program(sh) written by Ken Thompson in 1971. It was a simple command interpreter, not designed for scripting, butnonetheless introduced several innovative features to the command-line interface and led to the development of the later Unix shells.
+
+.SH BUGS
+This shell doesn't handle relative path, neither how error messages will apear when trying. Special characters, redirections and piping also won't work.
+
+.SH AUTHORS
+Written by Joaquin Dominguez with contributions from Felipe Sandim.
