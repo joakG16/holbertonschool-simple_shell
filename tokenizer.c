@@ -1,9 +1,9 @@
 #include "main.h"
 
 /**
- * token - function to tokenize the buffer
- * @buffer: the buffer
- * Return: argv value
+ * token - function to tokenize the captured input
+ * @buffer: input to delimit
+ * Return: a null-terminated double pointer pointing to the tokenized arguments
  */
 char **token(char *buffer)
 {
@@ -13,18 +13,20 @@ char **token(char *buffer)
 
 	toked = strtok(buffer, " \n\t");
 
-	if(toked == NULL)
+	if (toked == NULL)
 		return (NULL);
 
 	argv = calloc(1024, sizeof(char *));
+
 	if (!argv)
 		return (NULL);
 
-	for(i = 0; i < 1024 && toked != NULL; i++)
+	for (i = 0; i < 1024 && toked != NULL; i++)
 	{
 		argv[i] = toked;
 		toked = strtok(NULL, " \n\t");
 	}
+
 	argv[i] = NULL;
 
 	return (argv);

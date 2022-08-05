@@ -1,8 +1,11 @@
 #include "main.h"
 
 /**
- * main - the main function
- * Return: void
+ * main - main body of our shell
+ * @ac: unused
+ * @av: unused
+ * @env: array of strings enviroment variable of the process
+ * Return: exit status of child process
  */
 int main(int ac, char **av, char **env)
 {
@@ -16,9 +19,7 @@ int main(int ac, char **av, char **env)
 	while (1)
 	{
 		signal(SIGINT, catchsig);
-
 		shprompt();
-
 		if (getline(&buffer, &buff_size, stdin) == EOF)
 			break;
 
@@ -32,7 +33,7 @@ int main(int ac, char **av, char **env)
 
 		if (_strcmp(*args, "exit") == 0)
 		{
-			if(args)
+			if (args)
 				free(args);
 			free(buffer);
 			return (retval);
@@ -40,7 +41,7 @@ int main(int ac, char **av, char **env)
 		if (_strcmp(*args, "env") == 0)
 		{
 			_getenv();
-			if(args)
+			if (args)
 				free(args);
 			continue;
 		}
@@ -50,8 +51,8 @@ int main(int ac, char **av, char **env)
 	return (retval);
 }
 /**
- * catchsig - function to catch the signal
- * @sig: the signal
+ * catchsig - function to check if a SIGINT was typed
+ * @sig: the signal catched by the signal()
  * Return: void
  */
 void catchsig(int sig)
@@ -63,8 +64,9 @@ void catchsig(int sig)
 	}
 }
 /**
- * shprompt - function to verify if it's from terminal or file
- * Return: void
+ * shprompt - function to verify input (comes from terminal or not)
+ * and print correspondent prompt(or not)
+ * Return: 0
  **/
 int shprompt(void)
 {
@@ -76,17 +78,18 @@ int shprompt(void)
 }
 
 /**
- * _getenv - func to get the environment
+ * _getenv - func to print the environment when "env"
  * Return: 0
  */
-int _getenv()
+int _getenv(void)
 {
-        int string, strenv = 0;
-        for (string = 0; environ[string] != NULL; string++)
-        {
-                write(1, environ[strenv], _strlen(environ[strenv]));
+	int string, strenv = 0;
+
+	for (string = 0; environ[string] != NULL; string++)
+	{
+		write(1, environ[strenv], _strlen(environ[strenv]));
 		write(1, "\n", 2);
-                strenv++;
-        }
-        return (0);
+		strenv++;
+	}
+	return (0);
 }

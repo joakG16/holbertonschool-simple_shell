@@ -1,9 +1,11 @@
 #include "main.h"
 
 /**
- * 
- *
- *
+ *vexec - function to create child process and execute correspondent
+ *command passed
+ *@args: double pointer pointing to string of arguments
+ *@enve: enviroment inherited from parent process to use with execve
+ *Return: exit status from child process
  */
 int vexec(char **args, char **enve)
 {
@@ -30,7 +32,7 @@ int vexec(char **args, char **enve)
 	if (WIFEXITED(status))
 	{
 		free(args);
-		return(WEXITSTATUS(status));
+		return (WEXITSTATUS(status));
 	}
 	free(args);
 	return (0);
